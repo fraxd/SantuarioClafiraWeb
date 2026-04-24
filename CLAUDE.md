@@ -27,7 +27,15 @@ santuario-clafira/
 │   ├── css/
 │   │   └── styles.css       # Output compilado de Tailwind (no editar)
 │   └── images/
-│       └── logo.png         # Logo oficial del santuario
+│       ├── logo.png         # Logo oficial del santuario
+│       └── animales/        # Fotos reales del santuario (14 imágenes)
+│           ├── hero-caballo.jpg
+│           ├── nosotros-burro-madre.jpg
+│           ├── nosotros-vaca.jpg
+│           ├── nosotros-ciervos.jpg
+│           ├── animal-{nombre}.jpg  # Una por cada habitante
+│           └── voluntariado.jpg
+├── contenido/               # Fuente local de fotos originales (en .gitignore)
 ├── tailwind.config.js
 ├── postcss.config.js
 ├── nest-cli.json
@@ -41,7 +49,7 @@ santuario-clafira/
 # Desarrollo (servidor + Tailwind en modo watch, paralelo)
 npm run start:dev
 
-# Solo compilar CSS
+# Solo compilar CSS (necesario después de cambiar views/*.hbs o agregar clases nuevas)
 npm run build:css
 
 # Build de producción
@@ -49,6 +57,9 @@ npm run build
 
 # Iniciar en producción
 npm run start:prod
+
+# Build estático completo (lo que ejecuta Netlify)
+npm run build:static
 ```
 
 ## Secciones del sitio
@@ -57,8 +68,8 @@ npm run start:prod
 |---|---|---|
 | Nav | — | Navbar fija, logo, links, toggle ES/EN, CTA "Donar ahora" |
 | Hero | `#inicio` | Headline emocional, stats (170+ habitantes, 2012, 14 especies), 2 CTAs |
-| Nosotros | `#nosotros` | Historia del santuario, grid de fotos placeholder, valores |
-| Habitantes | `#animales` | 6 tarjetas de animales con historia expandible (Alpine.js) |
+| Nosotros | `#nosotros` | Historia del santuario, grid de 3 fotos reales, valores |
+| Habitantes | `#animales` | 9 tarjetas de animales con foto real e historia expandible; 6 visibles + 3 tras botón "Ver más" (Alpine.js) |
 | Donar | `#donar` | Formulario interactivo: frecuencia (mensual/única), montos preset en CLP |
 | Voluntariado | `#voluntariado` | Cards de redes sociales (Instagram, Facebook, TikTok) |
 | Footer | — | Logo, ubicación, Instagram, copyright |
@@ -95,10 +106,22 @@ En `src/main.ts` se registran:
 - `eq a b` — igualdad estricta (usado para condicionales de iconos en redes sociales)
 - `lookup arr idx` — acceso por índice a arrays (usado en nav links/hrefs)
 
+## Datos de animales (`app.service.ts`)
+
+Los animales se dividen en dos arrays dentro del objeto `animals`:
+
+- `animals.featured` — 6 animales siempre visibles: Valentina (vaca), Copete (cerdo), Palomita (gallina), Cósimo (cabro), Frida (yegua), Bambi (cierva)
+- `animals.extra` — 3 animales ocultos por defecto: Coco (burro), Negra (perra), Mochi (gata)
+
+Cada animal tiene: `id`, `name`, `species` (bilingüe), `image` (ruta `/images/animales/...`), `story` (bilingüe).
+
+CTAs de la sección: `animals.ctaMore`, `animals.ctaLess`, `animals.ctaSponsor`.
+
 ## Interactividad (Alpine.js)
 
 - **Nav:** scroll-aware (`x-data`, `x-init`, `:class`) + menú hamburguesa móvil
 - **Animal cards:** `x-data="{ open: false }"` — click para expandir/colapsar historia
+- **Show-more habitantes:** `x-data="{ showAll: false }"` en wrapper padre; las tarjetas extra se envuelven en `<div x-show="showAll" class="contents" style="display:none">` para participar en el CSS grid sin romper el layout
 - **Formulario donación:** `x-data` con `freq`, `amount`, `custom`, computed `display`
 
 ## Repositorio y despliegue
@@ -130,11 +153,12 @@ La carpeta `dist-static/` está en `.gitignore`; Netlify la genera en cada deplo
 
 ## Próximos pasos sugeridos
 
-- [ ] Reemplazar placeholders de fotos con imágenes reales del santuario
+- [ ] **[PENDIENTE REVISAR]** Verificar y corregir el encuadre/posición de las imágenes integradas (hero, about grid, tarjetas de animales, voluntariado) — hay problemas visuales por revisar
+- [ ] Investigar por qué Netlify no dispara deploy automático al hacer push a `main` (revisar webhook en Site configuration → Build & deploy)
 - [ ] Integrar pasarela de pago (Flow, Webpay/Transbank) en el formulario de donación
-- [ ] Agregar más habitants a la galería de animales
+- [ ] Confirmar y actualizar nombres reales de Coco (burro), Negra (perra) y Mochi (gata) si difieren
+- [ ] Agregar más habitantes a la galería (expandir `animals.extra`)
 - [ ] Configurar links reales de Facebook y TikTok
 - [ ] Añadir página de animales completa (todos los 170+ habitantes)
 - [ ] Implementar formulario de contacto/voluntariado por email
 - [ ] Agregar meta tags Open Graph para compartir en redes sociales
-- [ ] Configurar dominio y despliegue (Railway, Fly.io, VPS, etc.)
