@@ -9,7 +9,7 @@ export class AppService {
       lang,
       isEs,
       meta: {
-        title: 'Santuario Clafira',
+        title: 'Fundación Santuario Clafira',
         description: isEs
           ? 'Más de 170 animales de 14 especies distintas encuentran paz, amor y libertad en Limache, Chile.'
           : 'Over 170 rescued animals from 14 different species find peace, love and freedom in Limache, Chile.',
@@ -40,9 +40,8 @@ export class AppService {
           { num: '100%', label: isEs ? 'Compasión' : 'Compassion' },
         ],
         lastRescue: {
-          label: isEs ? 'Último rescate' : 'Latest rescue',
-          name: isEs ? '🐄 Esperanza, la vaca' : '🐄 Esperanza, the cow',
-          time: isEs ? 'Rescatada hace 2 semanas' : 'Rescued 2 weeks ago',
+          name: isEs ? '🐴 Frida, la yegua' : '🐴 Frida, the mare',
+          time: isEs ? '4 años en el santuario' : '4 years at the sanctuary',
         },
       },
       about: {
@@ -51,8 +50,8 @@ export class AppService {
           ? 'Nacimos del amor por los que no tienen voz'
           : 'We were born from love for those without a voice',
         p1: isEs
-          ? 'Santuario Clafira nació con una convicción simple: los animales de granja merecen vivir. Ubicados en Limache, en la Región de Valparaíso, somos un refugio para vacas, cerdos, gallinas, cabras, caballos, ciervos y muchos más que llegaron a nuestras manos después de años de sufrimiento.'
-          : 'Santuario Clafira was born with a simple conviction: farm animals deserve to live. Located in Limache, in the Valparaíso Region, we are a refuge for cows, pigs, chickens, goats, horses, deer and many more who came to us after years of suffering.',
+          ? 'Fundación Santuario Clafira nació con una convicción simple: los animales de granja merecen vivir. Ubicados en Limache, en la Región de Valparaíso, somos un refugio para vacas, cerdos, gallinas, cabras, caballos, ciervos y muchos más que llegaron a nuestras manos después de años de sufrimiento.'
+          : 'Fundación Santuario Clafira was born with a simple conviction: farm animals deserve to live. Located in Limache, in the Valparaíso Region, we are a refuge for cows, pigs, chickens, goats, horses, deer and many more who came to us after years of suffering.',
         p2: isEs
           ? 'Hoy somos hogar de más de 170 habitantes que tienen nombre, historia y personalidad. Cada uno de ellos nos recuerda por qué hacemos esto cada mañana.'
           : 'Today we are home to over 170 residents who have names, stories and personalities. Each one of them reminds us why we do this every morning.',
@@ -147,12 +146,12 @@ export class AppService {
           },
           {
             id: 8,
-            name: 'Negra',
-            species: isEs ? 'Perra' : 'Dog',
+            name: 'Crush',
+            species: isEs ? 'Perro' : 'Dog',
             image: '/images/animales/animal-perro.jpg',
             story: isEs
-              ? 'Negra llegó al santuario asustada y flaca. Hoy es la guardiana más fiel del refugio.'
-              : 'Negra arrived at the sanctuary scared and thin. Today she is the most loyal guardian of the refuge.',
+              ? 'Crush llegó al santuario asustada y flaca. Hoy es la guardiana más fiel del refugio.'
+              : 'Crush arrived at the sanctuary scared and thin. Today she is the most loyal guardian of the refuge.',
           },
           {
             id: 9,

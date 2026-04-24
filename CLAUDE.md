@@ -111,7 +111,7 @@ En `src/main.ts` se registran:
 Los animales se dividen en dos arrays dentro del objeto `animals`:
 
 - `animals.featured` — 6 animales siempre visibles: Valentina (vaca), Copete (cerdo), Palomita (gallina), Cósimo (cabro), Frida (yegua), Bambi (cierva)
-- `animals.extra` — 3 animales ocultos por defecto: Coco (burro), Negra (perra), Mochi (gata)
+- `animals.extra` — 3 animales ocultos por defecto: Coco (burro), Crush (perro), Mochi (gata)
 
 Cada animal tiene: `id`, `name`, `species` (bilingüe), `image` (ruta `/images/animales/...`), `story` (bilingüe).
 
@@ -154,9 +154,9 @@ La carpeta `dist-static/` está en `.gitignore`; Netlify la genera en cada deplo
 ## Próximos pasos sugeridos
 
 - [ ] **[PENDIENTE REVISAR]** Verificar y corregir el encuadre/posición de las imágenes integradas (hero, about grid, tarjetas de animales, voluntariado) — hay problemas visuales por revisar
-- [ ] Investigar por qué Netlify no dispara deploy automático al hacer push a `main` (revisar webhook en Site configuration → Build & deploy)
+- [ ] eliminar mensaje de "Ultimo rescate", dejarlo solamente con el nombre del habitante y su tiempo en el santuario tal vez. Ademas la imagen actual es de un Caballo.
 - [ ] Integrar pasarela de pago (Flow, Webpay/Transbank) en el formulario de donación
-- [ ] Confirmar y actualizar nombres reales de Coco (burro), Negra (perra) y Mochi (gata) si difieren
+- [ ] Confirmar y actualizar nombres reales de Coco (burro), y Mochi (gata) si difieren
 - [ ] Agregar más habitantes a la galería (expandir `animals.extra`)
 - [ ] Configurar links reales de Facebook y TikTok
 - [ ] Añadir página de animales completa (todos los 170+ habitantes)

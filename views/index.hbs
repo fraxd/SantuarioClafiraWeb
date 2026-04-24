@@ -135,7 +135,6 @@
         </div>
         <!-- Floating rescue card -->
         <div class="absolute -bottom-5 -left-6 bg-white rounded-2xl p-4 shadow-lg border border-teal/10">
-          <div class="text-xs text-[#7aaba4] mb-1">{{hero.lastRescue.label}}</div>
           <div class="font-serif font-bold text-[#142b28] text-base">{{hero.lastRescue.name}}</div>
           <div class="text-xs text-teal mt-1">{{hero.lastRescue.time}}</div>
         </div>
@@ -148,25 +147,25 @@
     <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center">
       <!-- Photo grid -->
       <div class="grid grid-cols-2 gap-3">
-        <div class="rounded-2xl overflow-hidden row-span-2 aspect-[3/4]">
+        <div class="rounded-2xl overflow-hidden row-span-2">
           <img
             src="/images/animales/nosotros-burro-madre.jpg"
             alt="Burro bebé con su madre en el Santuario Clafira"
-            class="w-full h-full object-cover object-center"
+            class="w-full h-full object-cover object-right"
           />
         </div>
-        <div class="rounded-2xl overflow-hidden aspect-[4/3]">
+        <div class="rounded-2xl overflow-hidden aspect-square">
           <img
             src="/images/animales/nosotros-vaca.jpg"
             alt="Vaca rescatada en el Santuario Clafira"
-            class="w-full h-full object-cover object-center"
+            class="w-full h-full object-cover object-top"
           />
         </div>
-        <div class="rounded-2xl overflow-hidden aspect-[4/3]">
+        <div class="rounded-2xl overflow-hidden aspect-square">
           <img
             src="/images/animales/nosotros-ciervos.jpg"
             alt="Ciervos alimentándose en el Santuario Clafira"
-            class="w-full h-full object-cover object-top"
+            class="w-full h-full object-cover object-center"
           />
         </div>
       </div>
@@ -236,36 +235,36 @@
           </div>
           {{/each}}
 
-          <div x-show="showAll" class="contents" style="display:none">
-            {{#each animals.extra}}
-            <div
-              x-data="{ open: false }"
-              @click="open = !open"
-              :class="open ? 'ring-2 ring-teal shadow-[0_8px_40px_rgba(61,158,142,0.2)]' : 'shadow-md hover:-translate-y-1'"
-              class="bg-white rounded-2xl overflow-hidden cursor-pointer transition-all duration-200"
-            >
-              <div class="aspect-[4/3] overflow-hidden">
-                <img
-                  src="{{this.image}}"
-                  alt="{{this.name}}, {{this.species}}"
-                  class="w-full h-full object-cover"
-                />
+          {{#each animals.extra}}
+          <div
+            x-show="showAll"
+            x-data="{ open: false }"
+            @click="open = !open"
+            :class="open ? 'ring-2 ring-teal shadow-[0_8px_40px_rgba(61,158,142,0.2)]' : 'shadow-md hover:-translate-y-1'"
+            class="bg-white rounded-2xl overflow-hidden cursor-pointer transition-all duration-200"
+            style="display:none"
+          >
+            <div class="aspect-[4/3] overflow-hidden">
+              <img
+                src="{{this.image}}"
+                alt="{{this.name}}, {{this.species}}"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="p-5">
+              <div class="flex items-baseline gap-2 mb-2">
+                <span class="font-serif font-bold text-xl text-[#142b28]">{{this.name}}</span>
+                <span class="text-sm text-teal font-semibold">{{this.species}}</span>
               </div>
-              <div class="p-5">
-                <div class="flex items-baseline gap-2 mb-2">
-                  <span class="font-serif font-bold text-xl text-[#142b28]">{{this.name}}</span>
-                  <span class="text-sm text-teal font-semibold">{{this.species}}</span>
-                </div>
-                <div x-show="open" x-transition class="text-sm text-[#3d6b64] leading-relaxed border-t border-teal-pale pt-3 mt-2">
-                  {{this.story}}
-                </div>
-                <div x-show="!open" class="text-sm text-teal mt-1">
-                  {{#if ../isEs}}Ver historia →{{else}}See story →{{/if}}
-                </div>
+              <div x-show="open" x-transition class="text-sm text-[#3d6b64] leading-relaxed border-t border-teal-pale pt-3 mt-2">
+                {{this.story}}
+              </div>
+              <div x-show="!open" class="text-sm text-teal mt-1">
+                {{#if ../isEs}}Ver historia →{{else}}See story →{{/if}}
               </div>
             </div>
-            {{/each}}
           </div>
+          {{/each}}
         </div>
 
         <!-- Bottom CTA -->
@@ -420,7 +419,7 @@
         <img
           src="/images/animales/voluntariado.jpg"
           alt="Jornada de voluntariado en el Santuario Clafira"
-          class="w-full h-full object-cover object-top"
+          class="w-full h-full object-cover object-center"
         />
       </div>
     </div>
@@ -439,7 +438,7 @@
         </a>
       </div>
       <div class="text-xs text-[#7aaba4]">
-        © {{footer.year}} Santuario Clafira · {{footer.copyright}}
+        © {{footer.year}} Fundación Santuario Clafira · {{footer.copyright}}
       </div>
     </div>
   </footer>
