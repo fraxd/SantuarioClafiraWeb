@@ -76,13 +76,15 @@ export class AppService {
         sub: isEs
           ? 'Cada uno tiene nombre, historia y una personalidad única. Son la razón de cada día.'
           : 'Each one has a name, a story and a unique personality. They are the reason for every day.',
-        cta: isEs ? 'Apadrina un habitante →' : 'Sponsor a resident →',
-        list: [
+        ctaMore: isEs ? 'Ver más habitantes ↓' : 'See more residents ↓',
+        ctaLess: isEs ? 'Ver menos ↑' : 'See less ↑',
+        ctaSponsor: isEs ? 'Apadrina un habitante →' : 'Sponsor a resident →',
+        featured: [
           {
             id: 1,
             name: 'Valentina',
             species: isEs ? 'Vaca' : 'Cow',
-            emoji: '🐄',
+            image: '/images/animales/animal-valentina.jpg',
             story: isEs
               ? 'Valentina llegó al santuario después de escapar de un matadero. Hoy, sus mejores amigos son los humanos que la cuidan cada día.'
               : 'Valentina arrived at the sanctuary after escaping a slaughterhouse. Today, her best friends are the humans who care for her every day.',
@@ -91,7 +93,7 @@ export class AppService {
             id: 2,
             name: 'Copete',
             species: isEs ? 'Cerdo' : 'Pig',
-            emoji: '🐷',
+            image: '/images/animales/animal-copete.jpg',
             story: isEs
               ? 'Copete fue rescatado de una granja industrial. Ahora pasa sus días jugando en el barro y tomando siestas al sol.'
               : 'Copete was rescued from an industrial farm. He now spends his days playing in the mud and napping in the sun.',
@@ -100,7 +102,7 @@ export class AppService {
             id: 3,
             name: 'Palomita',
             species: isEs ? 'Gallina' : 'Chicken',
-            emoji: '🐔',
+            image: '/images/animales/animal-palomita.jpg',
             story: isEs
               ? 'Palomita nunca había pisado tierra hasta que llegó a Clafira. Hoy explora el patio con curiosidad infinita.'
               : 'Palomita had never touched ground until she arrived at Clafira. Today she explores the yard with infinite curiosity.',
@@ -109,7 +111,7 @@ export class AppService {
             id: 4,
             name: 'Cósimo',
             species: isEs ? 'Cabro' : 'Goat',
-            emoji: '🐐',
+            image: '/images/animales/animal-cosimo.jpg',
             story: isEs
               ? 'Cósimo es el más travieso del santuario. Escapa de cualquier corral y siempre encuentra la manera de meterse en problemas.'
               : 'Cósimo is the most mischievous in the sanctuary. He escapes any pen and always finds a way to get into trouble.',
@@ -118,7 +120,7 @@ export class AppService {
             id: 5,
             name: 'Frida',
             species: isEs ? 'Yegua' : 'Mare',
-            emoji: '🐴',
+            image: '/images/animales/animal-frida.jpg',
             story: isEs
               ? 'Frida llegó desnutrida y asustada. Hoy galopa libre por los potreros y tiene más energía que nadie.'
               : 'Frida arrived malnourished and scared. Today she gallops freely through the paddocks and has more energy than anyone.',
@@ -127,10 +129,39 @@ export class AppService {
             id: 6,
             name: 'Bambi',
             species: isEs ? 'Cierva' : 'Deer',
-            emoji: '🦌',
+            image: '/images/animales/animal-bambi.jpg',
             story: isEs
               ? 'Bambi fue encontrada herida en el campo. Su recuperación fue un milagro y hoy es el alma del santuario.'
               : 'Bambi was found injured in the field. Her recovery was a miracle and today she is the soul of the sanctuary.',
+          },
+        ],
+        extra: [
+          {
+            id: 7,
+            name: 'Coco',
+            species: isEs ? 'Burro' : 'Donkey',
+            image: '/images/animales/animal-burro.jpg',
+            story: isEs
+              ? 'Coco llegó recién nacido junto a su madre. Creció en el santuario y hoy es el más cariñoso del lugar.'
+              : 'Coco arrived newborn alongside his mother. He grew up at the sanctuary and today he is the most affectionate of all.',
+          },
+          {
+            id: 8,
+            name: 'Negra',
+            species: isEs ? 'Perra' : 'Dog',
+            image: '/images/animales/animal-perro.jpg',
+            story: isEs
+              ? 'Negra llegó al santuario asustada y flaca. Hoy es la guardiana más fiel del refugio.'
+              : 'Negra arrived at the sanctuary scared and thin. Today she is the most loyal guardian of the refuge.',
+          },
+          {
+            id: 9,
+            name: 'Mochi',
+            species: isEs ? 'Gata' : 'Cat',
+            image: '/images/animales/animal-gato.jpg',
+            story: isEs
+              ? 'Mochi apareció un día sin avisar y decidió quedarse. Ahora reina sobre todos los habitantes.'
+              : 'Mochi showed up one day unannounced and decided to stay. Now she reigns over all the residents.',
           },
         ],
       },
