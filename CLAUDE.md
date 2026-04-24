@@ -101,6 +101,33 @@ En `src/main.ts` se registran:
 - **Animal cards:** `x-data="{ open: false }"` — click para expandir/colapsar historia
 - **Formulario donación:** `x-data` con `freq`, `amount`, `custom`, computed `display`
 
+## Repositorio y despliegue
+
+| | URL |
+|---|---|
+| **GitHub** | https://github.com/fraxd/SantuarioClafiraWeb |
+| **Netlify (producción)** | https://santuario-clafira.netlify.app |
+| **Admin Netlify** | https://app.netlify.com/projects/santuario-clafira |
+
+### Flujo de despliegue continuo
+
+Cada `git push` a `main` dispara automáticamente:
+```
+git push origin main → Netlify ejecuta npm run build:static → dist-static/ publicado
+```
+
+### URLs por idioma (producción)
+- Español: https://santuario-clafira.netlify.app/
+- Inglés: https://santuario-clafira.netlify.app/en/
+
+### Build estático (`dist-static/`)
+
+El script `scripts/build-static.js` usa el NestJS compilado + Handlebars para pre-renderizar dos HTML estáticos:
+- `dist-static/index.html` → español
+- `dist-static/en/index.html` → inglés
+
+La carpeta `dist-static/` está en `.gitignore`; Netlify la genera en cada deploy.
+
 ## Próximos pasos sugeridos
 
 - [ ] Reemplazar placeholders de fotos con imágenes reales del santuario
